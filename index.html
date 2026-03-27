@@ -8,18 +8,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-import { Analytics } from "@vercel/analytics/next"
-<Analytics />
+
 <!-- NAV -->
-<nav>
-    <div class="nav-logo">NILE FORGE</div>
-    <ul class="nav-links">
-        <li><a href="#crisis">The Crisis</a></li>
-        <li><a href="#solution">Solution</a></li>
-        <li><a href="#timeline">Timeline</a></li>
-        <li><a href="#budget">Budget</a></li>
-        <li><a href="#cta">Partner</a></li>
-    </ul>
+<nav class="navbar">
+    
+    <div class="nav-left">
+        <a href="#crisis">The Crisis</a>
+        <a href="#solution">Solution</a>
+    </div>
+
+    <div class="nav-center">
+        <img src="images/UYIH-logo.jpg" alt="UYIH Logo" class="nav-logo">
+    </div>
+
+    <div class="nav-right">
+        <a href="#timeline">Timeline</a>
+        <a href="#budget">Budget</a>
+        <a href="#cta">Partner</a>
+    </div>
+
 </nav>
 
 <!-- HERO -->
@@ -32,8 +39,7 @@ import { Analytics } from "@vercel/analytics/next"
     <div class="hero-badge">Umoja Youth Impact Hub · March 2026</div>
     <div class="hero-title">PROJECT<br>NILE FORGE</div>
     <div class="hero-subtitle">
-        Transforming Juba's plastic pollution crisis into paving bricks, construction materials,
-        and furniture — while creating dignified employment for youth, women, and waste pickers.
+        A circular industrial engine turning Juba's plastic crisis into certified, solar-manufactured construction materials and dignified Green Jobs — converting a city's greatest liability into its most durable structural asset.
     </div>
     <div class="hero-org">South Sudan · Plastic Waste-to-Value Initiative</div>
     <div class="hero-funding">
@@ -52,7 +58,7 @@ import { Analytics } from "@vercel/analytics/next"
 <section id="crisis">
     <p class="section-label reveal">The Problem</p>
     <h2 class="section-title reveal">Juba's Plastic<br>Crisis at a Glance</h2>
-    <p class="section-desc reveal">The Nile River — primary water source for millions — is drowning in plastic. Cholera, malaria, flooding. And South Sudan's only recycling plant shut down in 2016 and was never replaced.</p>
+    <p class="section-desc reveal">The Nile River — primary water source for millions — is drowning in plastic. Cholera, malaria, flooding. Plastic discarded in Juba today flows downstream, threatening the Sudd wetlands — Africa's largest freshwater reserve — and ultimately reaching the Mediterranean Sea. South Sudan's only recycling plant shut down in 2016 and was never replaced. <strong>NILE FORGE is the last line of defense for the Nile ecosystem.</strong></p>
 
     <div class="stats-grid">
         <div class="stat-card reveal">
@@ -76,9 +82,19 @@ import { Analytics } from "@vercel/analytics/next"
             <div class="stat-label">Functioning recycling plants in all of South Sudan — the only one shut down in 2016</div>
         </div>
         <div class="stat-card reveal">
+            <div class="stat-icon">🌿</div>
+            <div class="stat-num">Sudd</div>
+            <div class="stat-label">Juba's plastic flows downstream to the Sudd — a UNESCO-listed wetland and Africa's largest freshwater reserve, now under direct threat</div>
+        </div>
+        <div class="stat-card reveal">
+            <div class="stat-icon">🌊</div>
+            <div class="stat-num">Flash</div>
+            <div class="stat-label">Plastic-clogged drainage triggers flash flooding in Gudele, Munuki, and Gumbo every rainy season — displacing thousands from informal settlements</div>
+        </div>
+        <div class="stat-card reveal">
             <div class="stat-icon">🌡️</div>
             <div class="stat-num">40°C+</div>
-            <div class="stat-label">Juba's desert temperatures accelerate plastic degradation and microplastic contamination</div>
+            <div class="stat-label">Juba's desert temperatures accelerate plastic degradation and microplastic contamination of water sources</div>
         </div>
         <div class="stat-card reveal">
             <div class="stat-icon">⚖️</div>
@@ -98,36 +114,44 @@ import { Analytics } from "@vercel/analytics/next"
 <section id="solution">
     <p class="section-label reveal">The Solution</p>
     <h2 class="section-title reveal">From Waste<br>to Value</h2>
-    <p class="section-desc reveal">Modelled on Gjenge Makers Ltd (Nairobi) — which recycled 200,000+ kg of plastic and created 600 jobs — NILE FORGE adapts this proven model for Juba. No chemicals required. Solar-assisted energy. Community-driven collection.</p>
+    <p class="section-desc reveal">Modelled on Gjenge Makers Ltd (Nairobi) — which recycled 200,000+ kg of plastic and created 600 jobs — NILE FORGE adapts this proven model for Juba. No chemicals required. Solar-powered production makes every brick carbon-neutral. A digital traceability system (<strong>Nile-Trace</strong>) records each kilo of plastic from collection to final product — so donors can say exactly which 500 bottles their investment pulled from the Nile, who collected them, and which building they now form part of.</p>
     <div class="process-flow">
         <div class="process-step reveal">
             <div class="step-icon">🧴</div>
             <div class="step-label">Plastic Collected</div>
-            <div class="step-sub">PET bottles, HDPE containers from 5 community hubs</div>
+            <div class="step-sub">PET bottles, HDPE containers from 5 community hubs across Juba</div>
         </div>
         <div class="step-arrow reveal">→</div>
         <div class="process-step reveal">
             <div class="step-icon">🔄</div>
             <div class="step-label">Sorted &amp; Cleaned</div>
-            <div class="step-sub">By trained Nile Rangers youth collectors</div>
+            <div class="step-sub">By Environmental Technicians — PPE-equipped, formally employed Nile Rangers</div>
         </div>
         <div class="step-arrow reveal">→</div>
         <div class="process-step reveal">
             <div class="step-icon">⚙️</div>
             <div class="step-label">Shredded &amp; Pressed</div>
-            <div class="step-sub">Industrial shredder + solar-powered heat press</div>
+            <div class="step-sub">Industrial shredder + solar-powered heat press — zero diesel, carbon-neutral output</div>
         </div>
         <div class="step-arrow reveal">→</div>
         <div class="process-step reveal">
             <div class="step-icon">🧱</div>
             <div class="step-label">Products Made</div>
-            <div class="step-sub">Paving bricks, construction bricks, furniture</div>
+            <div class="step-sub">Certified Nile Bricks, interlocking house bricks, and Nile Bench furniture</div>
         </div>
         <div class="step-arrow reveal">→</div>
         <div class="process-step reveal">
             <div class="step-icon">💵</div>
             <div class="step-label">Revenue Earned</div>
-            <div class="step-sub">Sold to NGOs, UN agencies, government, private sector</div>
+            <div class="step-sub">Sold to NGOs, UN agencies, government &amp; private sector — traceable impact for every buyer</div>
+        </div>
+    </div>
+
+    <div class="solution-callout reveal">
+        <div class="callout-icon">🌿</div>
+        <div class="callout-content">
+            <div class="callout-title">Carbon-Neutral Manufacturing — Unlocking Green Climate Funding</div>
+            <div class="callout-desc">Solar energy replaces diesel throughout production. Each Nile Brick prevents an estimated 2.4 kg of CO₂ versus a conventional concrete brick. This positions NILE FORGE to access international carbon credit programmes and Green Climate Fund mandates — revenue streams unavailable to traditional waste projects.</div>
         </div>
     </div>
 </section>
@@ -138,31 +162,89 @@ import { Analytics } from "@vercel/analytics/next"
     <div class="divider-text">Community-driven<br>collection</div>
 </div>
 
-<!-- PRODUCTS -->
+<!-- PRODUCTS / VALUE LADDER -->
 <section id="products">
     <p class="section-label reveal">Product Line</p>
-    <h2 class="section-title reveal">What We Build<br>from Plastic</h2>
+    <h2 class="section-title reveal">The Value Ladder —<br>What We Build from Plastic</h2>
+    <p class="section-desc reveal">Three tiers of production — built to cross-subsidise impact. High-margin Nile Bench furniture funds the low-cost housing bricks made available to Juba's most vulnerable communities. Every product sold advances the cycle.</p>
     <div class="products-grid">
         <div class="product-card reveal">
+            <div class="product-level">Level 1 · High Volume</div>
             <div class="product-emoji">🧱</div>
-            <div class="product-name">Paving Bricks &amp; Tiles</div>
-            <div class="product-spec">Up to 140 N/mm² — 2× stronger than concrete</div>
-            <div class="product-desc">Footpaths, compounds, public plazas. A durable alternative for South Sudan's public infrastructure.</div>
+            <div class="product-name">Nile Paving Bricks</div>
+            <div class="product-spec">8–140 MPa · Up to 7× stronger than concrete</div>
+            <div class="product-desc">Footpaths, compounds, public plazas. Near-waterproof, 50% lighter than concrete, and built to outlast conventional alternatives by decades. The foundation of Juba's sustainable public infrastructure.</div>
             <div class="product-price">~$15–25 per m² · 20–30% cheaper than imported pavers</div>
         </div>
         <div class="product-card reveal">
+            <div class="product-level">Level 2 · Scalable Housing</div>
             <div class="product-emoji">🏗️</div>
-            <div class="product-name">Construction Bricks</div>
-            <div class="product-spec">Compressed &amp; weather-resistant</div>
-            <div class="product-desc">NGO shelter projects and low-cost housing. Reduces dependency on costly imported materials.</div>
+            <div class="product-name">Interlocking House Bricks</div>
+            <div class="product-spec">Compressed, weather-resistant &amp; 50% lighter than concrete</div>
+            <div class="product-desc">NGO shelter projects and low-cost housing. Reduces dependency on costly imported materials. Interlocking design cuts construction labour time by up to 40% — making affordable housing genuinely affordable.</div>
             <div class="product-price">~$0.30–0.60 per brick</div>
         </div>
         <div class="product-card reveal">
+            <div class="product-level">Level 3 · High Margin</div>
             <div class="product-emoji">🪑</div>
-            <div class="product-name">Outdoor Furniture</div>
-            <div class="product-spec">UV-resistant · heat-tolerant at 40°C+</div>
-            <div class="product-desc">Schools, health centers, public parks. Low maintenance and built for Juba's extreme climate.</div>
-            <div class="product-price">~$40–80 per bench</div>
+            <div class="product-name">The Nile Bench</div>
+            <div class="product-spec">UV-resistant · heat-tolerant at 40°C+ · 50+ year lifespan</div>
+            <div class="product-desc">Designed for NGOs, government offices, hotels, schools, and health centres. Our premium outdoor furniture line — built for Juba's extreme climate with zero maintenance. High-margin sales directly subsidise affordable housing bricks for low-income communities.</div>
+            <div class="product-price">~$40–80 per bench · premium NGO &amp; government market</div>
+        </div>
+    </div>
+</section>
+
+<!-- TECHNICAL SPECS -->
+<section id="tech-specs">
+    <p class="section-label reveal">Standards &amp; Quality</p>
+    <h2 class="section-title reveal">The Nile Brick —<br>Technical Specification</h2>
+    <p class="section-desc reveal">Construction firms and institutional buyers need verified confidence before adopting recycled materials. The data is unambiguous — Nile Bricks outperform conventional concrete across every measurable dimension. Based on benchmarks established by Gjenge Makers Ltd (Nairobi).</p>
+
+    <div class="spec-table-wrapper reveal">
+        <table class="spec-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Traditional Concrete</th>
+                    <th class="highlight-col">NILE FORGE Plastic-Sand</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Compressive Strength</td>
+                    <td>12–15 MPa</td>
+                    <td class="highlight-col">8–140 MPa <span class="spec-badge">Up to 7× stronger</span></td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td>~2,200 kg/m³</td>
+                    <td class="highlight-col">~950–1,050 kg/m³ <span class="spec-badge">50% lighter</span></td>
+                </tr>
+                <tr>
+                    <td>Water Absorption</td>
+                    <td>5%–10% (porous)</td>
+                    <td class="highlight-col">&lt;1% <span class="spec-badge">Near waterproof</span></td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>N/A</td>
+                    <td class="highlight-col">&gt;350°C <span class="spec-badge">Safe in 40°C+ Juba heat</span></td>
+                </tr>
+                <tr>
+                    <td>Lifespan</td>
+                    <td>20–30 years</td>
+                    <td class="highlight-col">50+ years <span class="spec-badge">Fibrous &amp; flexible</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="cert-plan reveal">
+        <div class="cert-icon">🏛️</div>
+        <div class="cert-content">
+            <div class="cert-title">Certification Plan — South Sudan Bureau of Standards</div>
+            <div class="cert-desc">Phase 0 includes a technical audit in partnership with the South Sudan Bureau of Standards. The first 100 bricks produced will undergo compressive strength testing and fire-retardant testing before any product reaches market. Certification results will be published in our Phase 1 Mid-Term Report — giving procurement officers and construction firms a verifiable quality baseline they can cite in tenders and contracts.</div>
         </div>
     </div>
 </section>
@@ -200,7 +282,7 @@ import { Analytics } from "@vercel/analytics/next"
 
 <!-- IMAGE DIVIDER 5 -->
 <div class="image-divider">
-    <img src="images/women-collectors.jpg" alt="Women and youth working">
+    <img src="images/women-collectors.webp" alt="Women and youth working">
     <div class="divider-text">Dignified jobs<br>for youth &amp; women</div>
 </div>
 
@@ -213,31 +295,31 @@ import { Analytics } from "@vercel/analytics/next"
             <div class="bene-icon">🧑‍🔧</div>
             <div class="bene-group">Unemployed Youth</div>
             <div class="bene-num">40</div>
-            <div class="bene-desc">Young people aged 18–35 in direct employment as production workers and supervisors</div>
+            <div class="bene-desc">Young people aged 18–35 in direct employment as production workers and supervisors — with structured career progression into site leadership</div>
         </div>
         <div class="bene-card reveal">
             <div class="bene-icon">👩‍🏭</div>
-            <div class="bene-group">Women</div>
+            <div class="bene-group">Women Leaders</div>
             <div class="bene-num">20</div>
-            <div class="bene-desc">Minimum 50% of the production workforce reserved for women, with priority in management training</div>
+            <div class="bene-desc">Minimum 50% of the workforce — with women prioritised for management of all five community hubs. Research shows female-led waste programmes achieve 35% higher collection consistency</div>
         </div>
         <div class="bene-card reveal">
-            <div class="bene-icon">🗺️</div>
-            <div class="bene-group">Nile Rangers</div>
+            <div class="bene-icon">🦺</div>
+            <div class="bene-group">Environmental Technicians</div>
             <div class="bene-num">30</div>
-            <div class="bene-desc">Informal waste pickers formalized into the buyback scheme — replacing dangerous scavenging</div>
+            <div class="bene-desc">Former informal waste pickers now formalised as Environmental Technicians — issued full PPE kits, enrolled in health insurance, and paid via mobile banking through the Nile-Trace buyback system</div>
         </div>
         <div class="bene-card reveal">
             <div class="bene-icon">🏘️</div>
             <div class="bene-group">Neighborhoods</div>
             <div class="bene-num">5</div>
-            <div class="bene-desc">Gudele, Hai Thoura, Gumbo, Munuki, and Konyokonyo — served through community hubs</div>
+            <div class="bene-desc">Gudele, Hai Thoura, Gumbo, Munuki, and Konyokonyo — each hub also serving as a local drainage clearance point to reduce seasonal flash flooding</div>
         </div>
         <div class="bene-card reveal">
             <div class="bene-icon">🏫</div>
             <div class="bene-group">Partner Schools</div>
             <div class="bene-num">3</div>
-            <div class="bene-desc">Schools exchange student-collected bottles for recycled furniture and environmental education</div>
+            <div class="bene-desc">Schools exchange student-collected bottles for Nile Bench furniture and environmental education — embedding circular economy thinking in the next generation of South Sudanese leaders</div>
         </div>
     </div>
 </section>
@@ -253,37 +335,37 @@ import { Analytics } from "@vercel/analytics/next"
                 <div class="tl-dot">1</div>
                 <div class="tl-month">Month 1</div>
                 <div class="tl-phase">Setup &amp; Stakeholder Engagement</div>
-                <div class="tl-desc">Register operations in South Sudan, engage city council, baseline waste audit</div>
+                <div class="tl-desc">Register operations in South Sudan, engage city council, baseline waste audit, initiate Bureau of Standards partnership</div>
             </div>
             <div class="tl-step">
                 <div class="tl-dot">2</div>
                 <div class="tl-month">Month 2</div>
                 <div class="tl-phase">Equipment &amp; Infrastructure</div>
-                <div class="tl-desc">Install shredder, heat-press, solar unit; train 30 Nile Rangers; 5 collection hubs open</div>
+                <div class="tl-desc">Install shredder, heat-press, solar unit; issue PPE kits to 30 Environmental Technicians; 5 collection hubs open</div>
             </div>
             <div class="tl-step">
                 <div class="tl-dot">3</div>
                 <div class="tl-month">Month 3</div>
                 <div class="tl-phase">Workforce Training</div>
-                <div class="tl-desc">40 staff recruited (50% women); HSE training; first school plastic exchange</div>
+                <div class="tl-desc">40 staff recruited (50% women); HSE &amp; safety training; Nile-Trace mobile system onboarded; first school plastic exchange</div>
             </div>
             <div class="tl-step">
                 <div class="tl-dot">4</div>
                 <div class="tl-month">Month 4</div>
-                <div class="tl-phase">Pilot Production</div>
-                <div class="tl-desc">First 500 bricks produced; buyback payments launched; product samples to clients</div>
+                <div class="tl-phase">Pilot Production &amp; Certification</div>
+                <div class="tl-desc">First 500 bricks produced; compressive &amp; fire-retardant tests submitted to Bureau of Standards; LOIs sought from NGO buyers</div>
             </div>
             <div class="tl-step">
                 <div class="tl-dot">5</div>
                 <div class="tl-month">Month 5</div>
                 <div class="tl-phase">Market Entry &amp; First Sales</div>
-                <div class="tl-desc">First revenue earned; media launch event at the Nile; progress report submitted</div>
+                <div class="tl-desc">First revenue earned; LOIs converted to purchase orders; media launch at the Nile; certification results shared publicly</div>
             </div>
             <div class="tl-step">
                 <div class="tl-dot">6</div>
                 <div class="tl-month">Month 6</div>
                 <div class="tl-phase">Review &amp; Phase 2 Planning</div>
-                <div class="tl-desc">End-of-phase audit; impact measurement; Phase 2 proposal developed</div>
+                <div class="tl-desc">End-of-phase audit; carbon offset baseline calculated; Phase 2 Social Franchise proposal developed for replication in Malakal and Wau</div>
             </div>
         </div>
     </div>
@@ -293,7 +375,7 @@ import { Analytics } from "@vercel/analytics/next"
 <section id="budget">
     <p class="section-label reveal">Financials</p>
     <h2 class="section-title reveal">Phase 1<br>Budget Overview</h2>
-    <p class="section-desc reveal">Full cost recovery projected within 18–24 months. A 200 kg/day production unit can generate $3,000–$8,000/month in product sales.</p>
+    <p class="section-desc reveal">Full cost recovery projected within 18–24 months. A 200 kg/day production unit generates $3,000–$8,000/month in product sales. Carbon credit revenues from verified offsets provide an additional income stream unavailable to conventional waste projects.</p>
     <div class="budget-bars reveal" id="budgetBars">
         <div class="budget-row">
             <div class="budget-label">Machinery &amp; Equipment<br><small style="color:var(--muted)">Shredder, press, moulds, solar unit</small></div>
@@ -311,28 +393,28 @@ import { Analytics } from "@vercel/analytics/next"
             <div class="budget-amt">$12K</div>
         </div>
         <div class="budget-row">
-            <div class="budget-label">Community Buyback Fund</div>
-            <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:22%"></div></div>
+            <div class="budget-label">Community Buyback Fund<br><small style="color:var(--muted)">Incl. PPE kits, health insurance &amp; mobile banking for 30 Environmental Technicians</small></div>
+            <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:29%"></div></div>
             <div class="budget-amt">$13K</div>
         </div>
         <div class="budget-row">
-            <div class="budget-label">Collection Infrastructure<br><small style="color:var(--muted)">5 hubs, bins, signage</small></div>
-            <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:16%"></div></div>
+            <div class="budget-label">Collection Infrastructure<br><small style="color:var(--muted)">5 hubs, bins, signage &amp; distributed dry-season storage</small></div>
+            <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:22%"></div></div>
             <div class="budget-amt">$10K</div>
         </div>
         <div class="budget-row">
-            <div class="budget-label">Community Awareness &amp; Comms</div>
-            <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:13%"></div></div>
+            <div class="budget-label">Community Awareness &amp; Comms<br><small style="color:var(--muted)">Nile-Trace launch, media &amp; community mobilisation</small></div>
+            <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:20%"></div></div>
             <div class="budget-amt">$9K</div>
         </div>
         <div class="budget-row">
-            <div class="budget-label">Training &amp; Capacity Building</div>
-            <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:11%"></div></div>
+            <div class="budget-label">Training &amp; Capacity Building<br><small style="color:var(--muted)">HSE, Nile-Trace system onboarding &amp; women's hub management track</small></div>
+            <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:18%"></div></div>
             <div class="budget-amt">$8K</div>
         </div>
         <div class="budget-row">
-            <div class="budget-label">M&amp;E + Legal/Admin + Contingency</div>
-            <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:18%"></div></div>
+            <div class="budget-label">M&amp;E + Legal/Admin + Bureau of Standards Testing + Contingency</div>
+            <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:51%"></div></div>
             <div class="budget-amt">$23K</div>
         </div>
     </div>
@@ -356,37 +438,137 @@ import { Analytics } from "@vercel/analytics/next"
         </div>
         <div class="impact-card reveal">
             <div class="impact-num">40</div>
-            <div class="impact-label">Full-time youth and women workers employed</div>
+            <div class="impact-label">Full-time youth and women workers in formal employment</div>
         </div>
         <div class="impact-card reveal">
             <div class="impact-num">30</div>
-            <div class="impact-label">Nile Rangers — waste pickers integrated into the formal economy</div>
+            <div class="impact-label">Environmental Technicians — former waste pickers now with PPE, health insurance &amp; formal income</div>
         </div>
         <div class="impact-card reveal">
             <div class="impact-num">$48K</div>
-            <div class="impact-label">Estimated revenue earned across the 6-month phase</div>
+            <div class="impact-label">Estimated product revenue earned across the 6-month phase</div>
+        </div>
+        <div class="impact-card reveal">
+            <div class="impact-num">60T</div>
+            <div class="impact-label">Estimated tonnes of CO₂ prevented — qualifying for international carbon credit programmes</div>
+        </div>
+        <div class="impact-card reveal">
+            <div class="impact-num">3</div>
+            <div class="impact-label">Letters of Intent secured from NGO or government buyers before first product sale</div>
         </div>
         <div class="impact-card reveal">
             <div class="impact-num">5</div>
-            <div class="impact-label">Juba neighborhoods with reduced plastic waste burden</div>
+            <div class="impact-label">Juba neighborhoods with reduced plastic and improved drainage — lower flood risk</div>
         </div>
         <div class="impact-card reveal">
             <div class="impact-num">50K+</div>
-            <div class="impact-label">People reached through national &amp; regional media coverage</div>
+            <div class="impact-label">People reached through national &amp; regional media coverage of the Nile launch</div>
         </div>
     </div>
 </section>
 
+<!-- SDG ALIGNMENT -->
+ <section id="sdg">
+    <p class="section-label reveal">Global Framework</p>
+    <h2 class="section-title reveal">UN Sustainable<br>Development Goals</h2>
+
+    <!-- SDG HEADER IMAGE -->
+    <div class="sdg-header-image reveal">
+        <img src="images/sdg-header.jpg" alt="UN Sustainable Development Goals">
+    </div>
+
+    <p class="section-desc reveal">
+        NILE FORGE directly advances six of the United Nations' 17 Sustainable Development Goals — making it eligible for SDG-linked grant programmes, impact bonds, and ESG-mandated institutional funds.
+    </p>
+
+    <div class="sdg-grid">
+
+        <!-- SDG 6 -->
+        <div class="sdg-card reveal">
+            <div class="sdg-top">
+                <img src="images/sdg6.jpg" alt="SDG 6" class="sdg-icon">
+                <div class="sdg-num">SDG 6</div>
+            </div>
+            <div class="sdg-name">Clean Water &amp; Sanitation</div>
+            <div class="sdg-desc">
+                Removing plastic from the Nile directly protects the water quality relied on by millions daily. Improved drainage prevents contamination of informal settlement water points during seasonal flooding.
+            </div>
+        </div>
+
+        <!-- SDG 8 -->
+        <div class="sdg-card reveal">
+            <div class="sdg-top">
+                <img src="images/sdg8.jpg" alt="SDG 8" class="sdg-icon">
+                <div class="sdg-num">SDG 8</div>
+            </div>
+            <div class="sdg-name">Decent Work &amp; Economic Growth</div>
+            <div class="sdg-desc">
+                Formalising the informal waste sector — providing Environmental Technicians with PPE, fair wages, health insurance, and mobile banking. Green Jobs for Juba's most marginalised youth and women.
+            </div>
+        </div>
+
+        <!-- SDG 9 -->
+        <div class="sdg-card reveal">
+            <div class="sdg-top">
+                <img src="images/sdg9.jpg" alt="SDG 9" class="sdg-icon">
+                <div class="sdg-num">SDG 9</div>
+            </div>
+            <div class="sdg-name">Industry, Innovation &amp; Infrastructure</div>
+            <div class="sdg-desc">
+                Creating a circular economy industrial unit that manufactures superior construction materials locally — replacing costly imported inputs with solar-powered, certified alternatives produced in South Sudan.
+            </div>
+        </div>
+
+        <!-- SDG 11 -->
+        <div class="sdg-card reveal">
+            <div class="sdg-top">
+                <img src="images/sdg11.jpg" alt="SDG 11" class="sdg-icon">
+                <div class="sdg-num">SDG 11</div>
+            </div>
+            <div class="sdg-name">Sustainable Cities &amp; Communities</div>
+            <div class="sdg-desc">
+                Reducing Juba's urban waste burden and providing affordable, durable materials for low-cost housing and public spaces — while clearing plastic-clogged drains that cause seasonal flash flooding in informal settlements.
+            </div>
+        </div>
+
+        <!-- SDG 12 -->
+        <div class="sdg-card reveal">
+            <div class="sdg-top">
+                <img src="images/sdg12.jpg" alt="SDG 12" class="sdg-icon">
+                <div class="sdg-num">SDG 12</div>
+            </div>
+            <div class="sdg-name">Responsible Consumption &amp; Production</div>
+            <div class="sdg-desc">
+                The core of NILE FORGE is Waste-to-Value. Ensuring plastic is reused as a structural asset — certified bricks and premium furniture — rather than burned, dumped, or washed into the Nile and Sudd.
+            </div>
+        </div>
+
+        <!-- SDG 13 -->
+        <div class="sdg-card reveal">
+            <div class="sdg-top">
+                <img src="images/sdg13.jpg" alt="SDG 13" class="sdg-icon">
+                <div class="sdg-num">SDG 13</div>
+            </div>
+            <div class="sdg-name">Climate Action</div>
+            <div class="sdg-desc">
+                Solar-powered production eliminates diesel. Each Nile Brick prevents an estimated 2.4 kg of CO₂ versus conventional concrete — qualifying NILE FORGE for Green Climate Fund mandates and carbon credit revenue.
+            </div>
+        </div>
+        </div> <!-- ✅ CLOSE sdg-grid -->
+</section> 
+
 <!-- CTA -->
 <section id="cta">
+    <div class="container">
     <p class="section-label reveal" style="text-align:center">Call to Action</p>
     <h2 class="section-title reveal" style="text-align:center">Join the<br>Founding Partners</h2>
-    <p class="cta-quote reveal">"The Nile does not belong to any one country — and neither does the responsibility to protect it."</p>
+    <p class="cta-quote reveal">"NILE FORGE is not a waste collection project — it is a circular industrial engine. We solve Juba's infrastructure deficit while providing traceable, dignified Green Jobs to the city's most vulnerable youth. We turn a liability into a structural asset."</p>
     <div class="cta-roles reveal">
-        <div class="cta-role"><div class="cta-role-title">💰 Funding Partners</div><div class="cta-role-desc">$150K to cover Phase 1 in full or in part</div></div>
-        <div class="cta-role"><div class="cta-role-title">🏛️ Government</div><div class="cta-role-desc">Endorsement letters, land/site access, procurement commitments</div></div>
-        <div class="cta-role"><div class="cta-role-title">🏢 Corporate Partners</div><div class="cta-role-desc">CSR funding, product off-take agreements, brand partnership</div></div>
-        <div class="cta-role"><div class="cta-role-title">🔬 Technical Partners</div><div class="cta-role-desc">Equipment suppliers, recycling expertise, M&amp;E support</div></div>
+        <div class="cta-role"><div class="cta-role-title">💰 Funding Partners</div><div class="cta-role-desc">$150K to cover Phase 1 in full or in part — including Green Climate Fund and SDG-linked grant eligibility</div></div>
+        <div class="cta-role"><div class="cta-role-title">🏛️ Government</div><div class="cta-role-desc">Endorsement letters, land/site access, procurement commitments &amp; Bureau of Standards facilitation</div></div>
+        <div class="cta-role"><div class="cta-role-title">🏢 Corporate Partners</div><div class="cta-role-desc">CSR funding, product off-take agreements (Letters of Intent welcome) &amp; brand partnership</div></div>
+        <div class="cta-role"><div class="cta-role-title">🔬 Technical Partners</div><div class="cta-role-desc">Equipment suppliers, recycling expertise, certification labs &amp; M&amp;E support</div></div>
+        <div class="cta-role"><div class="cta-role-title">🌐 Social Franchise Partners</div><div class="cta-role-desc">License the NILE FORGE "Plug-and-Play" micro-factory model to Malakal, Wau, or across the border to Uganda and Ethiopia — scaling the blueprint beyond one city</div></div>
     </div>
     <div class="cta-contact reveal">
         <div style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem">Contact us</div>
@@ -395,14 +577,16 @@ import { Analytics } from "@vercel/analytics/next"
         <a href="https://umoja-youth-impact-hub.vercel.app" target="_blank">umoja-youth-impact-hub.vercel.app</a>
     </div>
     <div class="reveal">
-        <a href="mailto:contact@umoja-youth-impact-hub.vercel.app" class="cta-btn">📩 Email Us Now</a>
+        <a href="mailto:umojayouthhub@gmail.com" class="cta-btn">📩 Email Us Now</a>
         <a href="https://umoja-youth-impact-hub.vercel.app" target="_blank" class="cta-btn" style="background:linear-gradient(135deg,var(--earth),var(--sand));color:#1a0f00;">🌍 Visit Official Website</a>
     </div>
 </section>
 
 <footer>
-    © 2026 Umoja Youth Impact Hub · Project NILE FORGE ·<br>
-    <span style="color:var(--muted)">Submitted March 2026 · </span>
+    <div class="container">
+        © 2026 Umoja Youth Impact Hub · Project NILE FORGE ·<br>
+        <span style="color:var(--muted)">March 2026 · </span>
+    </div>
 </footer>
 
 <script src="script.js"></script>
