@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project NILE FORGE — Umoja Youth Impact Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nile: #0a2c4a;
+    --water: #0e7490;
+    --teal: #14b8a6;
+    --sand: #e2b960;
+    --earth: #c27d38;
+    --green: #22c55e;
+    --light: #f8f5ef;
+    --white: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --card-bg: #ffffff;
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--light);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ── ANIMATIONS (removed wave) ── */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes countUp {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(20,184,166,0.3); }
+    50% { box-shadow: 0 0 0 18px rgba(20,184,166,0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── NAV (light theme) ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(248, 245, 239, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(20,184,166,0.15);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* ── HERO (light theme + no wave) ── */
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f0f4f2 0%, #e0ede8 40%, #d1e8e0 100%);
+    padding: 2rem 1rem;
+  }
+  .hero-bg-circles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+    background: var(--teal);
+  }
+  .circle-1 { width: 600px; height: 600px; top: -150px; left: -150px; animation: float 8s ease-in-out infinite; }
+  .circle-2 { width: 400px; height: 400px; bottom: -100px; right: -100px; animation: float 6s ease-in-out infinite 2s; }
+  .circle-3 { width: 200px; height: 200px; top: 30%; right: 10%; opacity: 0.06; animation: float 10s ease-in-out infinite 1s; }
+  
+  .hero-badge {
+    background: rgba(20,184,166,0.1);
+    border: 1px solid rgba(20,184,166,0.3);
+    color: var(--teal);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.4rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.2rem, 10vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    color: var(--nile);
+    animation: fadeUp 0.8s ease 0.4s both;
+  }
+  .hero-subtitle {
+    font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+    font-weight: 400;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 1.4rem auto;
+    line-height: 1.6;
+    animation: fadeUp 0.8s ease 0.6s both;
+  }
+  .hero-org {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    animation: fadeUp 0.8s ease 0.8s both;
+  }
+  .hero-funding {
+    margin-top: 2.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, var(--teal), #0e7490);
+    color: white;
+    font-weight: 800;
+    font-size: 1.1rem;
+    padding: 0.9rem 2.2rem;
+    border-radius: 100px;
+    box-shadow: 0 10px 30px rgba(20,184,166,0.3);
+    animation: fadeUp 0.8s ease 1s both, pulse 2.5s ease-in-out 2s infinite;
+  }
+
+  /* ── SECTIONS COMMON (light theme) ── */
+  section {
+    padding: 5rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    color: var(--nile);
+    margin-bottom: 1rem;
+  }
+  .section-desc {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 680px;
+  }
+
+  /* ── CRISIS (light) ── */
+  #crisis {
+    background: #f0f4f2;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(20,184,166,0.15);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(20,184,166,0.15);
+  }
+  .stat-icon { font-size: 2.4rem; margin-bottom: 0.8rem; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.4rem;
+    color: var(--teal);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-top: 0.6rem;
+    line-height: 1.5;
+  }
+
+  /* ── SOLUTION / PROCESS (light) ── */
+  #solution {
+    background: var(--white);
+  }
+  .process-flow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 160px;
+    position: relative;
+  }
+  .step-icon {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--water), var(--teal));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 30px rgba(20,184,166,0.3);
+    animation: pulse 3s ease-in-out infinite;
+  }
+  .step-label {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--nile);
+  }
+  .step-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+  }
+  .step-arrow {
+    font-size: 2rem;
+    color: var(--teal);
+    opacity: 0.7;
+  }
+
+  /* ── PRODUCTS (light) ── */
+  #products {
+    background: #f0f4f2;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-top: 3rem;
+  }
+  .product-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(20,184,166,0.15);
+    border-radius: 24px;
+    padding: 2.2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    transition: all 0.35s ease;
+  }
+  .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(20,184,166,0.2);
+  }
+  .product-emoji { font-size: 3rem; margin-bottom: 1.2rem; }
+  .product-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.9rem;
+    color: var(--nile);
+    margin-bottom: 0.6rem;
+  }
+  .product-spec {
+    background: rgba(20,184,166,0.1);
+    color: var(--teal);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  .product-desc {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+  .product-price {
+    margin-top: 1.4rem;
+    color: var(--sand);
+    font-weight: 800;
+    font-size: 1.05rem;
+  }
+
+  /* ── FLYWHEEL (light) ── */
+  /* ====================== PERFECT CIRCULAR FLYWHEEL ====================== */
+.flywheel-wrapper {
+    max-width: 440px;
+    margin: 4rem auto;
+}
+
+.flywheel-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;           /* Makes it perfectly square → circle */
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.flywheel-ring {
+    position: absolute;
+    inset: 0;
+    border: 5px dashed rgba(20, 184, 166, 0.5);
+    border-radius: 50%;
+    animation: spin 30s linear infinite;
+}
+
+.flywheel-center {
+    position: absolute;
+    inset: 22%;
+    background: var(--card-bg);
+    border: 5px solid var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 0 45px rgba(20, 184, 166, 0.3);
+    z-index: 2;
+}
+
+.flywheel-center-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.5rem, 5vw, 2.4rem);
+    line-height: 1;
+    color: var(--teal);
+    text-align: center;
+}
+
+/* Nodes - perfectly placed on the circle */
+.flywheel-node {
+    position: absolute;
+    transform: translate(-50%, -50%);   /* Centers the node on the exact point */
+    width: 82px;
+    text-align: center;
+    z-index: 3;
+}
+
+.node-bubble {
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--water), var(--teal));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin: 0 auto 8px;
+    box-shadow: 0 8px 25px rgba(20, 184, 166, 0.4);
+}
+
+.node-text {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--nile);
+    line-height: 1.3;
+}
+
+/* Exact circular positions (60° apart) */
+.node-1 { top: 9%;  left: 50%; }   /* 12 o'clock */
+.node-2 { top: 24%; left: 85%; }   /* 2 o'clock */
+.node-3 { top: 70%; left: 85%; }   /* 4 o'clock */
+.node-4 { top: 88%; left: 50%; }   /* 6 o'clock */
+.node-5 { top: 70%; left: 15%; }   /* 8 o'clock */
+.node-6 { top: 24%; left: 15%; }   /* 10 o'clock */
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .flywheel-container { max-width: 320px; }
+    .node-bubble { width: 64px; height: 64px; font-size: 1.6rem; }
+    .flywheel-node { width: 70px; }
+}
+
+  /* ── BENEFICIARIES (light) ── */
+  #beneficiaries {
+    background: #f0f4f2;
+  }
+  .bene-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .bene-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 1.8rem;
+    border-left: 5px solid var(--teal);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  }
+  .bene-icon { font-size: 2.6rem; margin-bottom: 0.6rem; }
+  .bene-group {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--nile);
+  }
+  .bene-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.6rem;
+    color: var(--teal);
+    line-height: 1;
+  }
+  .bene-desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+
+  /* ── TIMELINE (light) ── */
+  #timeline {
+    background: var(--white);
+  }
+  .timeline-track {
+    position: relative;
+    margin-top: 3rem;
+  }
+  .timeline-line {
+    position: absolute;
+    top: 32px;
+    left: 0; right: 0;
+    height: 4px;
+    background: rgba(20,184,166,0.2);
+    border-radius: 9999px;
+  }
+  .timeline-line-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--water), var(--teal));
+    border-radius: 9999px;
+    width: 0%;
+    transition: width 1.5s ease;
+  }
+  .timeline-line-fill.active { width: 100%; }
+  .timeline-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    position: relative;
+  }
+  .tl-step {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+  .tl-dot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: white;
+    border: 4px solid var(--teal);
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 0 auto 1rem;
+  }
+  .tl-month { font-size: 0.8rem; font-weight: 700; color: var(--teal); }
+  .tl-phase { font-weight: 700; color: var(--nile); margin: 0.4rem 0; }
+  .tl-desc { font-size: 0.85rem; color: var(--muted); }
+
+  /* ── BUDGET (light) ── */
+  #budget {
+    background: #f0f4f2;
+  }
+  .budget-bars {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .budget-row {
+    display: grid;
+    grid-template-columns: 2fr 3fr auto;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .budget-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .budget-bar-track {
+    height: 14px;
+    background: rgba(20,184,166,0.1);
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+  .budget-bar-fill {
+    height: 100%;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--water), var(--teal));
+    width: 0%;
+    transition: width 1.2s ease;
+  }
+  .budget-bar-fill.animated { width: var(--target-w) !important; }
+  .budget-amt {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.35rem;
+    color: var(--sand);
+  }
+  .budget-total {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(20,184,166,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .budget-total-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--teal);
+  }
+
+  /* ── IMPACT (light) ── */
+  #impact {
+    background: var(--white);
+  }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .impact-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+  }
+  .impact-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.4rem;
+    color: var(--teal);
+  }
+  .impact-label {
+    color: var(--muted);
+    font-size: 1rem;
+    margin-top: 0.8rem;
+  }
+
+  /* ── CTA (light) ── */
+  #cta {
+    background: linear-gradient(135deg, #d1e8e0 0%, #e0ede8 100%);
+    padding: 6rem 1.5rem;
+    text-align: center;
+  }
+  .cta-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 720px;
+    margin: 0 auto 3rem;
+  }
+  .cta-roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  .cta-role {
+    background: var(--card-bg);
+    border: 1px solid rgba(20,184,166,0.2);
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    max-width: 260px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  }
+  .cta-role-title {
+    font-weight: 800;
+    color: var(--teal);
+    margin-bottom: 0.4rem;
+  }
+  .cta-contact {
+    background: var(--card-bg);
+    border: 1px solid rgba(20,184,166,0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 420px;
+  }
+  .cta-contact a {
+    color: var(--nile);
+    text-decoration: none;
+    display: block;
+    margin: 0.6rem 0;
+    font-weight: 600;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--teal), #0e7490);
+    color: white;
+    font-weight: 800;
+    font-size: 1.1rem;
+    padding: 1rem 2.8rem;
+    border-radius: 100px;
+    text-decoration: none;
+    margin: 0.6rem;
+    box-shadow: 0 10px 30px rgba(20,184,166,0.4);
+  }
+  .cta-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(20,184,166,0.5);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #f0f4f2;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted);
+    border-top: 1px solid rgba(20,184,166,0.15);
+  }
+
+  /* ── RESPONSIVE (enhanced for mobile + tablet) ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.2rem; }
+    .nav-links { display: none; }
+    section { padding: 3.5rem 1rem; }
+    .process-flow { flex-direction: column; gap: 1.5rem; }
+    .step-arrow { display: none; }
+    .timeline-steps { grid-template-columns: repeat(2, 1fr); }
+    .budget-row { grid-template-columns: 1fr auto; gap: 1rem; }
+    .flywheel-container { width: 280px; height: 280px; }
+    .hero-funding { font-size: 1rem; padding: 0.8rem 1.8rem; }
+    .hero-title { font-size: clamp(2.8rem, 9vw, 5rem); }
+  }
+  
+  @media (max-width: 480px) {
+    .stats-grid, .products-grid, .impact-grid, .bene-grid { grid-template-columns: 1fr; }
+    .flywheel-container { width: 240px; height: 240px; }
+    .cta-contact { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">NILE FORGE</div>
+  <ul class="nav-links">
+    <li><a href="#crisis">The Crisis</a></li>
+    <li><a href="#solution">Solution</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#budget">Budget</a></li>
+    <li><a href="#cta">Partner</a></li>
+  </ul>
+</nav>
+
+<!-- HERO (no wave) -->
+<div id="hero">
+  <div class="hero-bg-circles">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+  <div class="hero-badge">Umoja Youth Impact Hub · Narok East, Kenya · March 2026</div>
+  <div class="hero-title">PROJECT<br>NILE FORGE</div>
+  <div class="hero-subtitle">
+    Transforming Juba's plastic pollution crisis into paving bricks, construction materials,
+    and furniture — while creating dignified employment for youth, women, and waste pickers.
+  </div>
+  <div class="hero-org">South Sudan · Plastic Waste-to-Value Initiative</div>
+  <div class="hero-funding">
+    <span>💰</span>
+    Phase 1 Funding Requirement:$150,000 USD
+  </div>
+</div>
+
+<!-- CRISIS (context & stats on water crisis) -->
+<section id="crisis">
+    <p class="section-label reveal">The Problem</p>
+    <h2 class="section-title reveal">Juba's Plastic<br>Crisis at a Glance</h2>
+    <p class="section-desc reveal">The Nile River — primary water source for millions — is drowning in plastic. Cholera, malaria, flooding. And South Sudan's only recycling plant shut down in 2016 and was never replaced.</p>
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-icon">💧</div>
+        <div class="stat-num" data-count="90">0</div>
+        <div class="stat-label">% of Juba residents rely on untreated Nile River water — consuming microplastics daily</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-icon">🍶</div>
+        <div class="stat-num">1T+</div>
+        <div class="stat-label">Plastic bottles estimated to litter rivers, streets, and farmland across South Sudan</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-icon">🏘️</div>
+        <div class="stat-num" data-count="95">0</div>
+        <div class="stat-label">% of Juba's residential areas excluded from formal waste collection services</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-icon">♻️</div>
+        <div class="stat-num">0</div>
+        <div class="stat-label">Functioning recycling plants in all of South Sudan — the only one shut down in 2016</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-icon">🌡️</div>
+        <div class="stat-num">40°C+</div>
+        <div class="stat-label">Juba's desert temperatures accelerate plastic degradation and microplastic contamination</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-icon">⚖️</div>
+        <div class="stat-num">Dec '25</div>
+        <div class="stat-label">Governor criminalized public littering — a sign of government desperation to act</div>
+      </div>
+    </div>
+</section>
+
+<!-- SOLUTION (process flow: collect → sort → shred → produce → sell) -->
+<section id="solution">
+    <p class="section-label reveal">The Solution</p>
+    <h2 class="section-title reveal">From Waste<br>to Value</h2>
+    <p class="section-desc reveal">Modelled on Gjenge Makers Ltd (Nairobi) — which recycled 200,000+ kg of plastic and created 600 jobs — NILE FORGE adapts this proven model for Juba. No chemicals required. Solar-assisted energy. Community-driven collection.</p>
+    <div class="process-flow">
+      <div class="process-step reveal">
+        <div class="step-icon">🧴</div>
+        <div class="step-label">Plastic Collected</div>
+        <div class="step-sub">PET bottles, HDPE containers from 5 community hubs</div>
+      </div>
+      <div class="step-arrow reveal">→</div>
+      <div class="process-step reveal">
+        <div class="step-icon">🔄</div>
+        <div class="step-label">Sorted &amp; Cleaned</div>
+        <div class="step-sub">By trained Nile Rangers youth collectors</div>
+      </div>
+      <div class="step-arrow reveal">→</div>
+      <div class="process-step reveal">
+        <div class="step-icon">⚙️</div>
+        <div class="step-label">Shredded &amp; Pressed</div>
+        <div class="step-sub">Industrial shredder + solar-powered heat press</div>
+      </div>
+      <div class="step-arrow reveal">→</div>
+      <div class="process-step reveal">
+        <div class="step-icon">🧱</div>
+        <div class="step-label">Products Made</div>
+        <div class="step-sub">Paving bricks, construction bricks, furniture</div>
+      </div>
+      <div class="step-arrow reveal">→</div>
+      <div class="process-step reveal">
+        <div class="step-icon">💵</div>
+        <div class="step-label">Revenue Earned</div>
+        <div class="step-sub">Sold to NGOs, UN agencies, government, private sector</div>
+      </div>
+    </div>
+</section>
+
+<!-- PRODUCTS (three product lines with specs & pricing) -->
+<section id="products">
+    <p class="section-label reveal">Product Line</p>
+    <h2 class="section-title reveal">What We Build<br>from Plastic</h2>
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <div class="product-emoji">🧱</div>
+        <div class="product-name">Paving Bricks &amp; Tiles</div>
+        <div class="product-spec">Up to 140 N/mm² — 2× stronger than concrete</div>
+        <div class="product-desc">Footpaths, compounds, public plazas. A durable alternative for South Sudan's public infrastructure.</div>
+        <div class="product-price">~$15–25 per m² · 20–30% cheaper than imported pavers</div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-emoji">🏗️</div>
+        <div class="product-name">Construction Bricks</div>
+        <div class="product-spec">Compressed &amp; weather-resistant</div>
+        <div class="product-desc">NGO shelter projects and low-cost housing. Reduces dependency on costly imported materials.</div>
+        <div class="product-price">~$0.30–0.60 per brick</div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-emoji">🪑</div>
+        <div class="product-name">Outdoor Furniture</div>
+        <div class="product-spec">UV-resistant · heat-tolerant at 40°C+</div>
+        <div class="product-desc">Schools, health centers, public parks. Low maintenance and built for Juba's extreme climate.</div>
+        <div class="product-price">~$40–80 per bench</div>
+      </div>
+    </div>
+</section>
+
+<!-- FLYWHEEL (theory of change: 6-node self-reinforcing cycle) -->
+<!-- FLYWHEEL - PERFECT CIRCLE -->
+<section id="flywheel" style="background: var(--white); padding: 6rem 1.5rem; text-align: center;">
+    <p class="section-label reveal">Theory of Change</p>
+    <h2 class="section-title reveal">The Self-Reinforcing<br>Flywheel</h2>
+    <p class="section-desc reveal" style="margin: 0 auto; max-width: 660px;">
+        Each bottle collected feeds the cycle.<br>
+        More collection → more production → more revenue → more jobs → more community buy-in → cleaner Nile.
+    </p>
+
+    <div class="flywheel-wrapper reveal">
+        <div class="flywheel-container">
+            <!-- The Ring -->
+            <div class="flywheel-ring"></div>
+            
+            <!-- Center Logo -->
+            <div class="flywheel-center">
+                <div class="flywheel-center-text">NILE<br>FORGE</div>
+            </div>
+
+            <!-- 6 Nodes perfectly placed around the circle -->
+            <div class="flywheel-node node-1"><div class="node-bubble">🧴</div><div class="node-text">Bottles Collected</div></div>
+            <div class="flywheel-node node-2"><div class="node-bubble">⚙️</div><div class="node-text">Sorted &amp; Processed</div></div>
+            <div class="flywheel-node node-3"><div class="node-bubble">🧱</div><div class="node-text">Products Made</div></div>
+            <div class="flywheel-node node-4"><div class="node-bubble">💵</div><div class="node-text">Revenue Earned</div></div>
+            <div class="flywheel-node node-5"><div class="node-bubble">👷</div><div class="node-text">Jobs Created</div></div>
+            <div class="flywheel-node node-6"><div class="node-bubble">🌊</div><div class="node-text">Nile Gets Cleaner</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- BENEFICIARIES (5 groups: youth, women, waste pickers, neighborhoods, schools) -->
+<section id="beneficiaries">
+    <p class="section-label reveal">Who We Serve</p>
+    <h2 class="section-title reveal">Phase 1<br>Beneficiaries</h2>
+    <div class="bene-grid">
+      <div class="bene-card reveal">
+        <div class="bene-icon">🧑‍🔧</div>
+        <div class="bene-group">Unemployed Youth</div>
+        <div class="bene-num">40</div>
+        <div class="bene-desc">Young people aged 18–35 in direct employment as production workers and supervisors</div>
+      </div>
+      <div class="bene-card reveal">
+        <div class="bene-icon">👩‍🏭</div>
+        <div class="bene-group">Women</div>
+        <div class="bene-num">20</div>
+        <div class="bene-desc">Minimum 50% of the production workforce reserved for women, with priority in management training</div>
+      </div>
+      <div class="bene-card reveal">
+        <div class="bene-icon">🗺️</div>
+        <div class="bene-group">Nile Rangers</div>
+        <div class="bene-num">30</div>
+        <div class="bene-desc">Informal waste pickers formalized into the buyback scheme — replacing dangerous scavenging</div>
+      </div>
+      <div class="bene-card reveal">
+        <div class="bene-icon">🏘️</div>
+        <div class="bene-group">Neighborhoods</div>
+        <div class="bene-num">5</div>
+        <div class="bene-desc">Gudele, Hai Thoura, Gumbo, Munuki, and Konyokonyo — served through community hubs</div>
+      </div>
+      <div class="bene-card reveal">
+        <div class="bene-icon">🏫</div>
+        <div class="bene-group">Partner Schools</div>
+        <div class="bene-num">3</div>
+        <div class="bene-desc">Schools exchange student-collected bottles for recycled furniture and environmental education</div>
+      </div>
+    </div>
+</section>
+
+<!-- TIMELINE (6-month implementation roadmap with animated progress bar) -->
+<section id="timeline">
+    <p class="section-label reveal">Implementation</p>
+    <h2 class="section-title reveal">6-Month<br>Roadmap</h2>
+    <div class="timeline-track reveal">
+      <div class="timeline-line"><div class="timeline-line-fill" id="timelineFill"></div></div>
+      <div class="timeline-steps">
+        <div class="tl-step"><div class="tl-dot">1</div><div class="tl-month">Month 1</div><div class="tl-phase">Setup &amp; Stakeholder Engagement</div><div class="tl-desc">Register operations in South Sudan, engage city council, baseline waste audit</div></div>
+        <div class="tl-step"><div class="tl-dot">2</div><div class="tl-month">Month 2</div><div class="tl-phase">Equipment &amp; Infrastructure</div><div class="tl-desc">Install shredder, heat-press, solar unit; train 30 Nile Rangers; 5 collection hubs open</div></div>
+        <div class="tl-step"><div class="tl-dot">3</div><div class="tl-month">Month 3</div><div class="tl-phase">Workforce Training</div><div class="tl-desc">40 staff recruited (50% women); HSE training; first school plastic exchange</div></div>
+        <div class="tl-step"><div class="tl-dot">4</div><div class="tl-month">Month 4</div><div class="tl-phase">Pilot Production</div><div class="tl-desc">First 500 bricks produced; buyback payments launched; product samples to clients</div></div>
+        <div class="tl-step"><div class="tl-dot">5</div><div class="tl-month">Month 5</div><div class="tl-phase">Market Entry &amp; First Sales</div><div class="tl-desc">First revenue earned; media launch event at the Nile; progress report submitted</div></div>
+        <div class="tl-step"><div class="tl-dot">6</div><div class="tl-month">Month 6</div><div class="tl-phase">Review &amp; Phase 2 Planning</div><div class="tl-desc">End-of-phase audit; impact measurement; Phase 2 proposal developed</div></div>
+      </div>
+    </div>
+</section>
+
+<!-- BUDGET (8 line items with animated budget bars & total) -->
+<section id="budget">
+    <p class="section-label reveal">Financials</p>
+    <h2 class="section-title reveal">Phase 1<br>Budget Overview</h2>
+    <p class="section-desc reveal">Full cost recovery projected within 18–24 months. A 200 kg/day production unit can generate $3,000–$8,000/month in product sales.</p>
+    <div class="budget-bars reveal" id="budgetBars">
+      <div class="budget-row">
+        <div class="budget-label">Machinery &amp; Equipment<br><small style="color:var(--muted)">Shredder, press, moulds, solar unit</small></div>
+        <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:100%"></div></div>
+        <div class="budget-amt">$45K</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">Staff Salaries &amp; Wages<br><small style="color:var(--muted)">40 workers · 6 months</small></div>
+        <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:67%"></div></div>
+        <div class="budget-amt">$30K</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">Site Setup &amp; Leasehold</div>
+        <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:27%"></div></div>
+        <div class="budget-amt">$12K</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">Community Buyback Fund</div>
+        <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:22%"></div></div>
+        <div class="budget-amt">$13K</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">Collection Infrastructure<br><small style="color:var(--muted)">5 hubs, bins, signage</small></div>
+        <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:16%"></div></div>
+        <div class="budget-amt">$10K</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">Community Awareness &amp; Comms</div>
+        <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:13%"></div></div>
+        <div class="budget-amt">$9K</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">Training &amp; Capacity Building</div>
+        <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:11%"></div></div>
+        <div class="budget-amt">$8K</div>
+      </div>
+      <div class="budget-row">
+        <div class="budget-label">M&amp;E + Legal/Admin + Contingency</div>
+        <div class="budget-bar-track"><div class="budget-bar-fill" style="--target-w:18%"></div></div>
+        <div class="budget-amt">$23K</div>
+      </div>
+    </div>
+    <div class="budget-total reveal">
+      <div>
+        <div class="budget-total-label">Total Phase 1 Requirement</div>
+        <div style="font-size:0.9rem;color:var(--muted)">Full cost recovery projected within 18–24 months</div>
+      </div>
+      <div class="budget-total-num">$150K</div>
+    </div>
+</section>
+
+<!-- IMPACT (6 KPIs: plastic diverted, jobs, waste pickers, revenue, neighborhoods, media reach) -->
+<section id="impact">
+    <p class="section-label reveal">Expected Results</p>
+    <h2 class="section-title reveal">Phase 1<br>Impact Targets</h2>
+    <div class="impact-grid">
+      <div class="impact-card reveal">
+        <div class="impact-num">25,000<span style="font-size:1.2rem;font-weight:400;color:var(--muted)"> kg</span></div>
+        <div class="impact-label">Plastic diverted from the Nile and landfills in 6 months</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num">40</div>
+        <div class="impact-label">Full-time youth and women workers employed</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num">30</div>
+        <div class="impact-label">Nile Rangers — waste pickers integrated into the formal economy</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num">$48K</div>
+        <div class="impact-label">Estimated revenue earned across the 6-month phase</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num">5</div>
+        <div class="impact-label">Juba neighborhoods with reduced plastic waste burden</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num">50K+</div>
+        <div class="impact-label">People reached through national &amp; regional media coverage</div>
+      </div>
+    </div>
+</section>
+
+<!-- CTA (call to action with 4 partner roles + contact form) -->
+<section id="cta">
+    <p class="section-label reveal" style="text-align:center">Call to Action</p>
+    <h2 class="section-title reveal" style="text-align:center">Join the<br>Founding Partners</h2>
+    <p class="cta-quote reveal">"The Nile does not belong to any one country — and neither does the responsibility to protect it."</p>
+    <div class="cta-roles reveal">
+      <div class="cta-role"><div class="cta-role-title">💰 Funding Partners</div><div class="cta-role-desc">$150K to cover Phase 1 in full or in part</div></div>
+      <div class="cta-role"><div class="cta-role-title">🏛️ Government</div><div class="cta-role-desc">Endorsement letters, land/site access, procurement commitments</div></div>
+      <div class="cta-role"><div class="cta-role-title">🏢 Corporate Partners</div><div class="cta-role-desc">CSR funding, product off-take agreements, brand partnership</div></div>
+      <div class="cta-role"><div class="cta-role-title">🔬 Technical Partners</div><div class="cta-role-desc">Equipment suppliers, recycling expertise, M&amp;E support</div></div>
+    </div>
+    <div class="cta-contact reveal">
+      <div style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem">Contact Fred Ndolo — Executive Director</div>
+      <a href="mailto:umojayouthhub@gmail.com">umojayouthhub@gmail.com</a>
+      <a href="tel:+254783218081">+254 783 218 081</a>
+      <a href="https://umoja-youth-impact-hub.vercel.app" target="_blank">umoja-youth-impact-hub.vercel.app</a>
+    </div>
+    <div class="reveal">
+      <a href="mailto:umojayouthhub@gmail.com" class="cta-btn">📩 Email Us Now</a>
+      <a href="https://umoja-youth-impact-hub.vercel.app" target="_blank" class="cta-btn" style="background:linear-gradient(135deg,var(--earth),var(--sand));color:#1a0f00;">🌍 Visit Official Website</a>
+    </div>
+</section>
+
+<footer>
+  © 2026 Umoja Youth Impact Hub · Project NILE FORGE · Narok East, Kenya<br>
+  <span style="color:var(--muted)">Submitted March 2026 · Phase 1 Funding: $50,000 – $150,000 USD</span>
+</footer>
+
+<script>
+  // Reveal animations (fade-up on scroll)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Counter animation (percentage counters 0→target)
+  const countEls = document.querySelectorAll('[data-count]');
+  const countObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.count);
+        let current = 0;
+        const step = target / 40;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.round(current) + (el.dataset.suffix || '%');
+          if (current >= target) clearInterval(timer);
+        }, 25);
+        countObs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.6 });
+  countEls.forEach(el => countObs.observe(el));
+
+  // Budget bars (animated width fill on intersection)
+  const budgetObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.budget-bar-fill').forEach(bar => bar.classList.add('animated'));
+      }
+    });
+  }, { threshold: 0.4 });
+  const budgetEl = document.getElementById('budgetBars');
+  if (budgetEl) budgetObs.observe(budgetEl);
+
+  // Timeline fill (left-to-right progress indicator)
+  const tlObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) document.getElementById('timelineFill').classList.add('active');
+    });
+  }, { threshold: 0.6 });
+  const tlFill = document.getElementById('timelineFill');
+  if (tlFill) tlObs.observe(tlFill);
+</script>
+</body>
+</html>
