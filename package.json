@@ -1,0 +1,16 @@
+{
+  "name": "nile-forge",
+  "version": "1.0.0",
+  "description": "Plastic Waste-to-Value Initiative for Juba, South Sudan",
+  "scripts": {
+    "build": "echo 'Static site - no build step required'",
+    "dev": "npx serve .",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": ["plastic-recycling", "sustainability", "south-sudan"],
+  "author": "Umoja Youth Impact Hub",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
